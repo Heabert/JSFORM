@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+
+	<script>
+		function validate(){
+
+
+			document.getElementById("first name").innerHTML="";
+			document.getElementById("last name").innerHTML="";
+			document.getElementById("email").innerHTML="";
+			document.getElementById("age").innerHTML="";
+
+			var firstname = document.getElementById("firstname").value;
+			var lastname = document.getElementById("last name").value;
+			var email = document.getElementById("email").value;
+			var age = document.getElementById("age").value;
+					
+			var isValidated=true;
+			
+			if(firstname==""){
+				document.getElementById("first_name_error") .innerHTML = "please enter first name";
+				 isValidated=false;
+			}
+			
+			if(lastname==""){
+				document.getElementById("last_name_error") .innerHTML = "please enter last name";
+				 isValidated=false;
+			}
+			
+			if(email=="" || !email.includes("@")){
+				document.getElementById("email_error") .innerHTML = "please enter email";
+				 isValidated=false;
+			}
+			
+			if(age=="" || isNaN(age)){
+				document.getElementById("age_error") .innerHTML = "please enter your age";
+				 isValidated=false;
+			}
+			 return isValidated;
+
+		}
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<form action="https://www.google.com">
+		
+		<input type="text" id="firstname" placeholder="first name"><span class="error" id="first_name_error"></span><br>
+		<input type="text" id="lastname" placeholder="lastname"><span class="error" id="last_name_error"></span><br>
+		<input type="text" id="email" placeholder="email"><span class="error" id="email_error"></span><br>
+		<input type="text" id="age" placeholder="age"><span class="error" id="age_error"></span>
+
+		<input type="submit" onsubmit ="return validate()">
+	</form>
+
+
+
+
+</body>
+</html>
